@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<div class='root-container' id="root"> <!-- Root Container -->
+
+			<!-- Header Section -->
+			<div class='global-header-container'> <!-- Fix the header position on-top -->
+				<div class='global-header'>
+					
+					<!-- LOGO Section -->
+					<div class="global-header__logo"></div>
+
+					<!-- GLOBAL SEARCH SECTION -->
+					<div class='global-header__search'>
+						<div> <!-- To wrap the Search combobox and its items -->
+							<div style="position:relative">
+								<input class='combobox__input' value="Search: All" id="global_search_input" 
+									onfocus="document.getElementById('global_search_input_list').style.display = 'block';"  
+									onblur="document.getElementById('global_search_input_list').style.display = 'none';" />
+								<div class="inputicon_onright" onclick="document.getElementById('global_search_input').focus();">
+									<svg viewBox="0 0 520 520" class="svg_icon">
+										<g>
+											<path d="M83 140h354c10 0 17 13 9 22L273 374c-6 8-19 8-25 0L73 162c-7-9-1-22 10-22z" part="icon"></path>
+										</g>
+									</svg>
+								</div>
+							</div>
+							<div class="searchListPanel uiPanel" id="global_search_input_list">
+								<ul>
+									<li>
+										<div class="check_icon"><svg class="svg_icon svg_icon_x-small" focusable="false" data-key="check" aria-hidden="true" viewBox="0 0 520 520" part="icon"><g><path d="M191 425L26 259c-6-6-6-16 0-22l22-22c6-6 16-6 22 0l124 125a10 10 0 0015 0L452 95c6-6 16-6 22 0l22 22c6 6 6 16 0 22L213 425c-6 7-16 7-22 0z"></path></g></svg></div>
+										<div>All</div>
+									</li>
+									<li><div class="check_icon"></div><div>Search Item #1</div></li>
+									<li><div class="check_icon"></div><div>Search Item #2</div></li>
+									<li><div class="check_icon"></div><div>Search Item #3</div></li>
+									<li><div class="check_icon"></div><div>Search Item #4</div></li>
+									<li><div class="check_icon"></div><div>Search Item #5</div></li>
+									<li><div class="check_icon"></div><div>Search Item #6</div></li>
+									<li><div class="check_icon"></div><div>Search Item #7</div></li>
+									<li><div class="check_icon"></div><div>Search Item #8</div></li>
+									<li><div class="check_icon"></div><div>Search Item #9</div></li>
+									<li><div class="check_icon"></div><div>Search Item #10</div></li>
+								</ul>
+							</div>
+						</div>
+
+						<div style="position:relative; flex: 1 1 auto;">
+							<div class="inputicon_onleft">
+								<svg viewBox="0 0 520 520">
+									<g>
+										<path fill="#aeaeae" d="M496 453L362 320a189 189 0 10-340-92 190 190 0 00298 135l133 133a14 14 0 0021 0l21-21a17 17 0 001-22zM210 338a129 129 0 11130-130 129 129 0 01-130 130z"></path>
+									</g>
+								</svg>
+							</div>
+							<input class='combobox__input-value' style="width: 100%; padding-left: 2.875rem;" placeholder = "Search..."/>
+						</div>
+					</div>
+
+					<!-- USER PROFILE SECTION-->
+					<div class="global-header__profile">
+						<div class="avatar-holder">
+							<img id="avatar" src="images/profile_avatar.png" 
+								onerror="this.onerror=null; this.remove();" 
+								onclick="userProfile = document.getElementById('userProfile'); userProfile.style.display = 'block';  userProfile.focus();"								
+								/>							
+						</div>
+						<div class="uiPanel userProfilePanel" id="userProfile" onblur="userProfile = document.getElementById('userProfile'); userProfile.style.display = 'none'; " tabindex="-1">
+							<div class="pointer"></div>
+							<div style="position:relative">
+								<div class="userProfilePanel_avatar avatar-holder"><a href="#"><img src="images/profile_avatar.png" onerror="this.onerror=null; this.remove();" /></a></div>
+								<div class="userProfilePanel_info">
+									<h1 class="profile-name">User Name</h1>
+									<h2 class="profile-domain">user.email@domain.com</h2>									
+									<div class="profile-links">
+										<a href="#" class="profile-link-label">Settings</a>
+										<a href="#" class="profile-link-label">Log Out</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- USER PROFILE SECTION END -->
+				</div>
+			</div> <!-- Header Section END-->
+			
+
+			<!-- Top Navigation Menu SECTION-->
+
+			<!-- App Icon and Name-->
+			<div class="global-nav-container"> <!-- Fix Position -->
+				<div class="slds-context-bar">
+					<div class="navLeft">
+							<div style="display:flex; align-items:center; width:100%">			
+								<div class="icon-waffle">
+									<div class="slds-r1" style="top:0; left:0"></div>
+									<div class="slds-r2" style="top:0; left:0.5rem"></div>
+									<div class="slds-r3" style="top:0; right:0"></div>							
+									<div class="slds-r4" style="top:0.5rem; left:0"></div>
+									<div class="slds-r5" style="top:0.5rem; left:0.5rem"></div>
+									<div class="slds-r6" style="top:0.5rem; right:0rem"></div>
+									<div class="slds-r7" style="bottom:0; left:0"></div>
+									<div class="slds-r8" style="bottom:0; left:0.5rem"></div>
+									<div class="slds-r9" style="bottom:0; right:0"></div>
+								</div>
+								<span class="appName">
+									<span class="truncate">CRM</span>
+								</span>
+						</div>
+					</div>
+
+					<!-- Navigation Items-->
+					<div class="navCenter">
+						<div style="display:flex;"> <!-- Limit the navItem ::before and ::after width -->
+							<div class="navItem">
+								<a class="navItemLabel">
+									<span >Home</span>
+								</a>
+								
+							</div>
+						</div>
+
+						<div style="display:flex;"> 
+							<div class="navItem">
+								<a class="navItemLabel">
+									<span >Leads</span>
+									<svg class="svg_icon_xx-small svg_icon " style="margin-left: 0.75rem; margin-top:3px;" viewBox="0 0 520 520" part="icon">
+										<g><path d="M476 178L271 385c-6 6-16 6-22 0L44 178c-6-6-6-16 0-22l22-22c6-6 16-6 22 0l161 163c6 6 16 6 22 0l161-162c6-6 16-6 22 0l22 22c5 6 5 15 0 21z">								
+										</path></g>
+									</svg>
+								</a>
+							</div>
+						</div>
+
+						<div style="display:flex;"> 
+							<div class="navItem">
+								<a class="navItemLabel">
+									<span >Accounts</span>
+									<svg class="svg_icon_xx-small svg_icon " style="margin-left: 0.75rem; margin-top:3px;" viewBox="0 0 520 520" part="icon">
+										<g><path d="M476 178L271 385c-6 6-16 6-22 0L44 178c-6-6-6-16 0-22l22-22c6-6 16-6 22 0l161 163c6 6 16 6 22 0l161-162c6-6 16-6 22 0l22 22c5 6 5 15 0 21z">								
+										</path></g>
+									</svg>
+								</a>							
+							</div>
+						</div>
+
+						<div style="display:flex;"> 
+							<div class="navItem IsActive">
+								<a class="navItemLabel">
+									<span >BFProjects</span>
+									<svg class="svg_icon_xx-small svg_icon " style="margin-left: 0.75rem; margin-top:3px;" viewBox="0 0 520 520" part="icon">
+										<g><path d="M476 178L271 385c-6 6-16 6-22 0L44 178c-6-6-6-16 0-22l22-22c6-6 16-6 22 0l161 163c6 6 16 6 22 0l161-162c6-6 16-6 22 0l22 22c5 6 5 15 0 21z">								
+										</path></g>
+									</svg>
+								</a>							
+							</div>
+						</div>
+
+						<div style="display:flex;"> 
+							<div class="navItem" id="navMore" tabindex="-2">
+								<span class="navItemLabel">
+									<span>More</span>
+									<svg class="svg_icon_xx-small svg_icon " style="margin-left: 0.75rem; margin-top:3px;" viewBox="0 0 520 520" part="icon">
+										<g><path d="M83 140h354c10 0 17 13 9 22L273 374c-6 8-19 8-25 0L73 162c-7-9-1-22 10-22z"></path></g>
+									</svg>
+								</span>
+								<div class="dropdown dropdown--right" style="max-height:350px" id='navItemsMore'>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1 Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Menu #1</a></li>
+									<li><a>Resource Performance</a></li>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+				
+			</div>
+			<!-- Top Navigation Menu SECTION END -->
+			
+			<!-- Begin of Center Zone-->
+			<div class="center" style="padding:0;">
+				<!-- Begin of Center Zone Scroller -->
+				<div class="detailView" style="overflow-y: scroll;">
+
+					<!-- The First Panel - The Panel in Grey-->
+					<div class="detailPanel detailPanel--first" > 
+						<div style="flex: 1 1 0%; display:flex;">
+							<div style="background-color:#6b9ee2" class="listAvatar">
+								<img src="images/custom9_120.png" />
+							</div>
+							<div >
+								<div style="line-height:1; color: #444444;">BFProject</div>
+								<div class="detailPanel--title">05124</div>
+							</div>
+							
+						</div>
+						<div style="padding-top: 3px">
+							<ul class="button-group">
+								<li class="button" name="delete"><a>Delete</a></li>
+								<li class="button" name="edit"><a>Edit</a></li>
+								<li class="button" name="clone"><a>Clone</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- The Second Panel - The highlight details and related links-->
+					<div class="detailPanel detailPanel--second"> 
+						<div class="detailPanel--highlights truncate">
+							<div class="detailPanel--highlights--items">
+								<p class="text-title">Account</p>
+								<p class="lightning-formatted-text"><a><span class="detail--link">United Language Group.</span></a></p>
+							</div>
+							<div class="detailPanel--highlights--items">
+								<p class="text-title">Amount</p>
+								<p class="lightning-formatted-text">USD 2,412.490</p>
+							</div>
+							<div class="detailPanel--highlights--items">
+								<p class="text-title">Profit Margin</p>
+								<p class="lightning-formatted-text">27.82%</p>
+							</div>
+
+							<div class="detailPanel--highlights--items">
+								<p class="text-title">Profit Margin</p>
+								<p class="lightning-formatted-text">27.82%</p>
+							</div>
+						</div>
+
+						<div class="detailPanel--links truncate">
+							<div class="detailPanel--links--item">
+								<div style="background-color: #8784ea" class="icon_xx-small"><img src="images/ClientOrders_120.png"/></div>
+								<div class="lightning-formatted-text"><a><span class="detail--link">Client Orders</span></a></div>
+							</div>
+							<div class="detailPanel--links--item">
+								<div style="background-color: #9fdb66;" class="icon_xx-small"><img src="images/BFWO_120.png"/></div>
+								<div class="lightning-formatted-text"><a><span class="detail--link">BFWOs</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- The Third Panel - The Details Panel-->
+					<div class="detailPanel" style="margin-top: 13px"> 
+						<div>
+							<ul class="detailTabs">
+								<li class="activeDetailTab detailTab"><a>Details</a></li>
+								<!--li class="detailTab"><a>Related</a></li-->
+							</ul>
+						</div>
+
+						<!-- Detail Fields Section -->
+						<div class="section"> 
+							<div class="detailRow"><!-- Row 1 -->
+								<div class="detailColumn"> <!--Left Item -->
+									<div class="fieldLabel">Account</div><div class="fieldValue"><a><span class="detail--link">United Language Group.</span></a></div>
+								</div>
+								<div class="detailColumn"> <!--Right Item -->
+									<div class="fieldLabel">Currency</div><div class="fieldValue">USD - U.S. Dollar</div>
+								</div>
+							</div>
+
+							<div class="detailRow"><!-- Row 2 -->
+								<div class="detailColumn">
+									<div class="fieldLabel">Project Number</div><div class="fieldValue">05124</div>
+								</div>
+								<div class="detailColumn">
+									<div class="fieldLabel">Amount</div><div class="fieldValue">USD 2,412.490</div>
+								</div>
+							</div>
+
+							<div class="detailRow"><!-- Row 3 -->
+								<div class="detailColumn">
+									<div class="fieldLabel">Project Name</div><div class="fieldValue">HK_Site_202409</div>
+								</div>
+								<div class="detailColumn">
+									<div class="fieldLabel">Cost</div><div class="fieldValue">USD 1,741.327</div>
+								</div>
+							</div>
+
+							<div class="detailRow"><!-- Row 4 -->
+								<div class="detailColumn">
+									<div class="fieldLabel">End Client End Client End Client End Client</div><div class="fieldValue">ULG</div>
+								</div>
+								<div class="detailColumn">
+									<div class="fieldLabel">Gross Margin</div><div class="fieldValue">USD 671.160</div>
+								</div>
+							</div>
+
+							<div class="detailRow"><!-- Row 5 -->
+								<div class="detailColumn">
+									<div class="fieldLabel">Domain</div><div class="fieldValue">Legal</div>
+								</div>
+								<div class="detailColumn">
+									<div class="fieldLabel">Profit Margin</div><div class="fieldValue">27.82%</div>
+								</div>
+							</div>
+
+							<div class="detailRow"><!-- Row 6 -->
+								<div class="detailColumn">
+									<div class="fieldLabel">Maintenance Project</div><div class="fieldValue">Check</div>
+								</div>
+								<div class="detailColumn" style="border: none">
+									<div class="fieldLabel"></div><div class="fieldValue"></div>
+								</div>
+							</div>
+						</div>
+							
+						<!-- Note Section -->
+						
+						<div class="sectionTitle"> <!--Section Title -->
+							<svg class="svg_icon_x-small svg_icon " style="margin: 0 0.5rem; margin-top:3px;" viewBox="0 0 520 520" part="icon">
+								<g><path d="M476 178L271 385c-6 6-16 6-22 0L44 178c-6-6-6-16 0-22l22-22c6-6 16-6 22 0l161 163c6 6 16 6 22 0l161-162c6-6 16-6 22 0l22 22c5 6 5 15 0 21z">								
+								</path></g>
+							</svg>
+							<span>Note</span>
+						</div>											
+						<!-- Note Field -->
+						<div class="section"> 
+							<div class="detailRow"><!--Section Content -->
+								<div class="detailColumn">
+									<div class="fieldLabel">Note</div><div class="fieldValue">This is Note Content</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- System Section -->
+						<div class="sectionTitle"> <!--Section Title -->
+							<svg class="svg_icon_x-small svg_icon " style="margin: 0 0.5rem; margin-top:3px;" viewBox="0 0 520 520" part="icon">
+								<g><path d="M476 178L271 385c-6 6-16 6-22 0L44 178c-6-6-6-16 0-22l22-22c6-6 16-6 22 0l161 163c6 6 16 6 22 0l161-162c6-6 16-6 22 0l22 22c5 6 5 15 0 21z">								
+								</path></g>
+							</svg>
+							<span>System Information</span>
+						</div>						
+						<!-- System Fields -->
+						<div class="section"> 
+							<div class="detailRow"><!--Section Content -->
+								<div class="detailColumn">
+									<div class="fieldLabel">Created By</div><div class="fieldValue"><span class="avatar-x-small"></span><a><span class="detail--link">PM3 Boffin</span></a><span>, 2024-09-05, 11:25 a.m.</span></div>
+								</div>
+								<div class="detailColumn">
+									<div class="fieldLabel">Last Modified By</div><div class="fieldValue"><span class="avatar-x-small"></span><a><span class="detail--link">Admin</span></a><span>, 2024-11-05, 5:04 p.m.</span></div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<!-- End of The Third Panel - The Details Panel-->
+					
+
+					<!-- Related List Panel 1 -->
+					<div class="detailPanel" style="padding:0;">
+						<div class="listViewManager">
+
+							<!-- List Header -->
+							<div class="listHeader">
+								<!-- First Line of Header -->
+								<div style="display:flex;"> 
+									<div style="flex: 1 1 0%; display:flex; align-items: center;">
+										<div style="background-color:#8784ea" class="listAvatar listAvatar-small">
+											<img src="images/ClientOrders_120.png" />
+										</div>
+										<div class="relatedListTitle">Client Orders(10+)</div>
+										
+									</div>
+									<div>
+										<ul class="button-group">
+											<li class="button"><a>New</a></li>
+										</ul>
+									</div>
+								</div>
+								
+								<!-- Second Line of Header -->
+								<div style="display:flex; height: 2rem; margin-top: 1px;"> 
+									<div style="flex: 1 1 0%;" class="align-bottom text-body_small"><span>50+ items • Updated a few seconds ago</span></div>
+
+								</div>
+							<!-- List Header END -->
+							</div>
+
+							<!-- List View Table -->	
+							<div class="listDisplays" >
+								<div class="list-table--header-fixed_container" style="height:auto; overflow-x:auto;">
+									<table class="table table--header-fixed table--bordered" style="width: 1081px;">
+										<thead>
+											<tr>
+												<th style="width: 60px;" class="numberColumn"><div class="cell-fixed numberColumn"></div></th>
+												<th style="width: 205px;"><div class="cell-fixed" style="width: 205px;" id='mydiv'>													
+													<a class="th__action text-link--reset"><span class="truncate">BFCost Number</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 247px;"><div class="cell-fixed" style="width: 247px;">
+													<a class="th__action text-link--reset"><span class="truncate">Resource</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 250px;"><div class="cell-fixed" style="width: 250px;">
+													<a class="th__action text-link--reset"><span class="truncate">Bank Account</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 290px;"><div class="cell-fixed" style="width: 290px;">
+													<a class="th__action text-link--reset"><span class="truncate">PO Amount</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 218px;"><div class="cell-fixed" style="width: 218px;">
+													<a class="th__action text-link--reset"><span class="truncate">Date</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 327px;"><div class="cell-fixed" style="width: 327px;">
+													<a class="th__action text-link--reset"><span class="truncate">Note</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th><div class="cell-fixed" style="width: 1px;"></div></th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+	
+										</tbody>
+									</table>								
+								</div>
+								
+							</div>
+							<div style="text-align:center; line-height: 2rem;"><a>View All</a></div>
+						</div>
+						
+					<!-- End of Related List Panel 1 -->
+					</div>
+
+					<!-- Related List Panel 2 -->
+					<div class="detailPanel" style="padding:0;">
+						<div class="listViewManager">
+
+							<!-- List Header -->
+							<div class="listHeader">
+								<!-- First Line of Header -->
+								<div style="display:flex;"> 
+									<div style="flex: 1 1 0%; display:flex; align-items: center;">
+										<div style="background-color:#9fdb66" class="listAvatar listAvatar-small">
+											<img src="images/BFWO_120.png" />
+										</div>
+										<div class="relatedListTitle">Client Orders(10+)</div>
+										
+									</div>
+									<div>
+										<ul class="button-group">
+											<li class="button"><a>New</a></li>
+										</ul>
+									</div>
+								</div>
+								
+								<!-- Second Line of Header -->
+								<div style="display:flex; height: 2rem; margin-top: 1px;"> 
+									<div style="flex: 1 1 0%;" class="align-bottom text-body_small"><span>50+ items • Updated a few seconds ago</span></div>
+
+								</div>
+							<!-- List Header END -->
+							</div>
+
+							<!-- List View Table -->	
+							<div class="listDisplays" >
+								<div class="list-table--header-fixed_container" style="height:auto; overflow-x:auto;">
+									<table class="table table--header-fixed table--bordered" style="width: 1081px;">
+										<thead>
+											<tr>
+												<th style="width: 60px;" class="numberColumn"><div class="cell-fixed numberColumn"></div></th>
+												<th style="width: 205px;"><div class="cell-fixed" style="width: 205px;" id='mydiv'>													
+													<a class="th__action text-link--reset"><span class="truncate">BFCost Number</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 247px;"><div class="cell-fixed" style="width: 247px;">
+													<a class="th__action text-link--reset"><span class="truncate">Resource</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 250px;"><div class="cell-fixed" style="width: 250px;">
+													<a class="th__action text-link--reset"><span class="truncate">Bank Account</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 290px;"><div class="cell-fixed" style="width: 290px;">
+													<a class="th__action text-link--reset"><span class="truncate">PO Amount</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 218px;"><div class="cell-fixed" style="width: 218px;">
+													<a class="th__action text-link--reset"><span class="truncate">Date</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th style="width: 327px;"><div class="cell-fixed" style="width: 327px;">
+													<a class="th__action text-link--reset"><span class="truncate">Note</span></a>
+													<div class="resizable">
+														<input class="resizable__input assistive-text" value="205" />
+														<span class="resizable__handle" id="handle1"><span class="resizable__divider"></span></span>
+													</div>
+												</div></th>
+
+												<th><div class="cell-fixed" style="width: 1px;"></div></th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+
+											<tr>
+												<td><span style="display:flex; justify-content: space-between;"><div><div class="forceStatusIcon"></div><span class="row-number text-color--weak text-body--small"></span></div></span></td>
+												<td><a><span class="truncate">CO01797 CO01797 CO01797 CO01797</span></a></td>
+												<td style="width: 247px;"><span class="truncate">Emilio Reta Ortiz</span></td>
+												<td style="width: 250px;"><span class="truncate">BLG TD</span></td>
+												<td style="width: 290px;"><span class="truncate">CAD 25.50 (USD 18.750)</span></td>
+												<td style="width: 218px;"><span class="truncate">2024-05-31</span></td>
+												<td style="width: 327px;"><span class="truncate"></span></td>
+												<td style="width:1px"><span class="truncate"></span></td>
+											</tr>
+	
+										</tbody>
+									</table>								
+								</div>
+							</div>
+							<div style="text-align:center; line-height: 2rem;"><a>View All</a></div>
+						</div>
+						
+					<!-- End of Related List Panel 2 -->
+					</div>			
+
+				<!-- End of Center Zone Scroller -->
+				</div>
+	
+
+			<!-- Center END -->
+			</div>
+
+		<!-- Root Container END-->
+		</div> 
+
+
+		<!-- Modal -->
+		<div class="slds-modal slds-fade-in-open">
+			<div class="modal-container">
+				<!-- Close Button -->
+				<div class="modal-header slds-modal__header slds-modal__header_empty" style="padding:0; border-bottom:none">
+					<button class="slds-button slds-button_icon slds-modal__close" type="button">
+						<svg focusable="false" aria-hidden="true" viewBox="0 0 520 520" part="icon" lwc-3bq099ugqsh="" data-key="close" class="slds-button__icon slds-button__icon_large"><g lwc-3bq099ugqsh=""><path d="M310 254l130-131c6-6 6-15 0-21l-20-21c-6-6-15-6-21 0L268 212a10 10 0 01-14 0L123 80c-6-6-15-6-21 0l-21 21c-6 6-6 15 0 21l131 131c4 4 4 10 0 14L80 399c-6 6-6 15 0 21l21 21c6 6 15 6 21 0l131-131a10 10 0 0114 0l131 131c6 6 15 6 21 0l21-21c6-6 6-15 0-21L310 268a10 10 0 010-14z" lwc-3bq099ugqsh=""></path></g></svg>
+					</button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body slds-modal__content">
+					<!-- Record Title -->
+					<div class="slds-modal__header" >
+						<h2 class="slds-modal__title">Edit 05124</h2>
+					</div>
+					<!-- Record Details -->
+					<div style="background-color:#ffffff; padding: 2rem;">
+						<div class="form-legend-desktop">
+							<abbr class="slds-required" l>*</abbr> = Required Information
+						</div>
+					</div>
+				</div>
+
+			
+			</div>
+
+		</div>
+		<!-- Modal End -->
+
+
+	</body>
+
+<script src="global.js"> </script>
+</html>
